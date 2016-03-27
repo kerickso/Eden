@@ -79,7 +79,11 @@ init 1 python:
 
 ###### Step 2: SET UP ALL THE REN'PY TAGS: #####
 label new_reality:
-    scene matrix one
+    if beg == 2:
+        scene matrix one
+    else:
+        scene matrix one_two
+
     python:
         renpy.hide_screen("ui_nav")
         check_location(new_reality)
@@ -88,7 +92,13 @@ label new_reality:
     return
 
 label your_room:
-    scene matrix two
+    if beg == 2:
+        scene matrix two
+        "\"Normal my ass! Where is everything!?\""
+    else:
+        scene matrix two_two
+        "\"The machines must have gone crazy\""
+
     python:
         renpy.hide_screen("ui_nav")
         check_location(your_room)
@@ -271,6 +281,3 @@ label final_location:
         renpy.show_screen("ui_nav", final_location)
         final_location.screen_loop()
     return
-
-
-

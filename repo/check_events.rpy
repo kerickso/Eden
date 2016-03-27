@@ -4,6 +4,9 @@ init 2 python:
         if location.label == "new_reality":
             if beg == 1:
                 renpy.call("beginning")
+        if location.label == "your_room":
+            if beg == 2:
+                renpy.call("room")
 
 label beginning:
     scene intro one
@@ -32,6 +35,12 @@ label beginning:
     "The world has gone black around you."
     "What is this update? What have they done?"
     "Where do you go from here?"
-    $beg = 0
+    $beg = 2
     jump new_reality
+    return
+
+label room:
+    "This is your room. This is normal."
+    $beg = 3
+    jump your_room
     return

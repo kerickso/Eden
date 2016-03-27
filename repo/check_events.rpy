@@ -21,10 +21,10 @@ label beginning:
     "You go to the door to leave your bedroom..."
 
     scene intro four
-    "THIS IS NOT NORMAL!!"
+    "What you see outside... is NOT normal!!"
 
     scene intro five
-    "Everything is gone... this shouldn't be possible!"
+    "Everything is gone! This... shouldn't be possible!"
 
     scene black
     stop music
@@ -44,7 +44,7 @@ label beginning:
     scene matrix one with fade
 
     "Suddenly, you see green text appear where there should be a hallway"
-    "What the fuck?"
+    "\"What the hell?\""
     $beg = 2
     jump new_reality
     return
@@ -54,7 +54,7 @@ label room:
         renpy.pause()
         if new_reality.can_move("up") != True:
             new_reality.add_top(maze_entrance)
-    "But this isn't your room. And nothing is normal, anymore."
+    "\"Normal my ass! Where is everything!?\""
     $beg = 3
     jump your_room
     return

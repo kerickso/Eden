@@ -6,9 +6,9 @@ init 2 python:
             if beg == 1:
                 renpy.call("beginning")
         if location.label == "your_room":
-            if beg == 2:
+            if beg == 2 or beg == 3:
                 renpy.call("room")
-        if beg == 3:
+        if beg == 4:
             beg = beg - 1
         if location.label == "final_location":
             renpy.jump("finale")
@@ -56,8 +56,7 @@ label room:
         renpy.pause()
         if new_reality.can_move("up") != True:
             new_reality.add_top(maze_entrance)
-    "\"Normal my ass! Where is everything!?\""
-    $beg = 3
+    $beg = 4
     jump your_room
     return
 

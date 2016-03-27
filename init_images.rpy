@@ -14,3 +14,5 @@ init:
 
     image matrix one = "./rsrc/matrix1.jpg"
     image matrix two = "./rsrc/matrix2.jpg"
+    image matrix one_two = "./rsrc/matrix1.2.jpg"
+    image matrix two_two = "./rsrc/matrix2.2.jpg"

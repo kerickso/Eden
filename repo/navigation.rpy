@@ -69,6 +69,7 @@ init -1 python:
             if direction == "right":
                 if self.go_right() != self.label:
                     return True
+            return False
 
         def screen_loop(self):
             while True:

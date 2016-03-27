@@ -45,6 +45,8 @@ label beginning:
 label room:
     python:
         renpy.pause()
+        if new_reality.can_move("up") != True:
+            new_reality.add_top(maze_entrance)
     "But this isn't your room. And nothing is normal, anymore."
     $beg = 3
     jump your_room

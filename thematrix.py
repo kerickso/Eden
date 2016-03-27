@@ -21,28 +21,32 @@ def shift(bbox, x, y):
     bbox[2] += x
     bbox[3] += y
 
-def hackertext(text):
-    font = ImageFont.truetype("/usr/share/fonts/TTF/DroidSansMono.ttf", 64)
-    bbox = list(font.getmask(text).getbbox())
+def hackertext(text, font="/usr/share/fonts/TTF/DroidSansMono.ttf"):
+    font = ImageFont.truetype(font, 80)
+    boxes, size  = {}, (0, 0)
 
-    # Calculate a scaled up size for the image
-    k = max(math.ceil(width(bbox) / WIDTH),
-            math.ceil(height(bbox) / HEIGHT))
-    w = WIDTH * k
-    h = HEIGHT * k
-    # Create parameters based on how small the text will appear
-    bright = k * 256 // (k + 1)
-    blur = math.ceil(1.5 * k)
-    print('>>>', k, file=sys.stderr) # debugging info
+    y = 0
+    # Map every line in the input text to a bounding box
+    for line in text.split('\n'):
+        boxes[line] = list(font.getmask(line).getbbox())
+        shift(boxes[line], 0, y)
+        y += 6 * height(boxes[line]) // 5
+        size = max(size[0], boxes[line][2]), boxes[line][3]
 
-    # Create a black background image
-    image = Image.new('RGB', (w, h), 0x000000)
+    # Calculate a scale to size up the image
+    k = math.ceil(max(size[0] / WIDTH, size[1] / HEIGHT))
+    # Create a blank image with a black background to draw on
+    image = Image.new('RGB', (k * WIDTH, k * HEIGHT), 0x000000)
     draw = ImageDraw.Draw(image)
-    # Move the bounding box to the center of the image
-    shift(bbox, (w - width(bbox)) // 2, (h - height(bbox)) // 2)
-    # Draw the text in green on the image and resize it to WIDTHxHEIGHT
-    draw.text((bbox[0], bbox[1]), text, (0, bright, 0), font=font)
-    image = image.filter(ImageFilter.GaussianBlur(blur))
+
+    # Draw every line of text,
+    for line, bbox in boxes.items():
+        # Move the bounding box relative to the center of the image
+        shift(bbox, (image.width - width(bbox)) // 2,
+              (image.height - height(bbox) - size[1]) // 2)
+        # Draw the text in green on the image and resize it to WIDTHxHEIGHT
+        draw.text((bbox[0], bbox[1]), line, (0, 240, 0), font=font)
+
     image = image.resize((WIDTH, HEIGHT), Image.ANTIALIAS)
 
     return image
@@ -52,12 +56,33 @@ def main():
         opts, args = getopt.getopt(sys.argv[1:], 'o:ih')
         opts = dict(opts)
 
+        if '-h' in opts:
+            print("""
+Convert text to an image of green text on a black background
+
+Usage:
+    {} [OPTIONS] [INPUT TEXT]
+
+Options:
+    -o file : write output to the given file, uses tempfile by default
+    -i      : read from stdin instead of command line arguments
+    -h      : print this help and exit""".format(sys.argv[0])
+            )
+
+            exit()
+
+        if '-i' in opts:
+            text = []
+            for line in sys.stdin.readlines():
+                text.append('<{}>'.format(line.strip()))
+            text = '\n'.join(text)
+
+        else:
+            text = '<{}>'.format(' '.join(args))
+
         outfile = opts.get('-o', tempfile.mktemp('.png', 'img_'))
-        text = input() if '-i' in opts else ' '.join(args)
-
-        image = hackertext('<{}>'.format(text))
+        image = hackertext(text)
         image.save(outfile)
-
         print(outfile)
 
 if __name__ == '__main__':

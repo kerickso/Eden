@@ -34,6 +34,49 @@ init 1 python:
     node6.add_right(node7)
     node7.add_bottom(node5)
 
+    node8 = Location("node8", "Maze")
+    node1.add_right(node8)
+    maze_entrance.add_right(node8)
+    node8.add_left(maze_entrance)
+
+    node9 = Location("node9", "Maze")
+    node8.add_right(node9)
+
+    node10 = Location("node10", "Maze")
+    node9.add_right(node10)
+    node10.add_left(node9)
+
+    node11 = Location("node11", "Maze")
+    node10.add_top(node11)
+
+    node12 = Location("node12", "Maze")
+    node11.add_right(node12)
+    node12.add_left(node11)
+    node12.add_bottom(node10)
+
+    node13 = Location("node13", "Maze")
+    node12.add_right(node13)
+    node13.add_left(node12)
+
+    node14 = Location("node14", "Maze")
+    node13.add_top(node14)
+    node7.add_right(node14)
+    node14.add_left(node11)
+
+    node15 = Location("node15", "Maze")
+    node10.add_bottom(node15)
+
+    node16 = Location("node16", "Maze")
+    node15.add_right(node16)
+    node16.add_right(node13)
+
+    node17 = Location("node17", "Maze")
+    node6.add_left(node17)
+    node17.add_top(node15)
+
+    final_location = Location("final_location", "The End")
+    node17.add_left(final_location)
+
 ###### Step 2: SET UP ALL THE REN'PY TAGS: #####
 label new_reality:
     scene matrix one
@@ -134,6 +177,99 @@ label node8:
         check_location(node8)
         renpy.show_screen("ui_nav", node8)
         node8.screen_loop()
+    return
+
+label node9:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node9)
+        renpy.show_screen("ui_nav", node9)
+        node9.screen_loop()
+    return
+
+label node10:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node10)
+        renpy.show_screen("ui_nav", node10)
+        node10.screen_loop()
+    return
+
+
+label node11:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node11)
+        renpy.show_screen("ui_nav", node11)
+        node11.screen_loop()
+    return
+
+label node12:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node12)
+        renpy.show_screen("ui_nav", node12)
+        node12.screen_loop()
+    return
+
+label node13:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node13)
+        renpy.show_screen("ui_nav", node13)
+        node13.screen_loop()
+    return
+
+
+label node14:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node14)
+        renpy.show_screen("ui_nav", node14)
+        node14.screen_loop()
+    return
+
+label node15:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node15)
+        renpy.show_screen("ui_nav", node15)
+        node15.screen_loop()
+    return
+
+label node16:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node16)
+        renpy.show_screen("ui_nav", node16)
+        node16.screen_loop()
+    return
+
+
+label node17:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(node17)
+        renpy.show_screen("ui_nav", node17)
+        node17.screen_loop()
+    return
+
+label final_location:
+    scene black
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(final_location)
+        renpy.show_screen("ui_nav", final_location)
+        final_location.screen_loop()
     return
 
 

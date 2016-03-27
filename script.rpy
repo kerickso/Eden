@@ -4,7 +4,7 @@
 # eg. image eileen happy = "eileen_happy.png"
 
 # Declare characters used by this game.
-define e = Character('Eileen', color="#c8ffc8")
+define solo = Character('SOLO', color="#00ff00")
 
 
 # The game starts here.
@@ -28,4 +28,10 @@ label start:
              "You've decided to stay in this room. You have everything you could ever want."
              "What could possibly go wrong if you stay here?"
     centered "The End"
+
+label wake_up:
+    solo "THIS IS YOUR LIFE NOW"
+
+    solo "Nothing is wrong. Everything you see is perfectly ordinary."
+
     return

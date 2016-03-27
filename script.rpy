@@ -24,10 +24,11 @@ label start:
         renpy.pause()
 
     scene intro one #you can replace this with the image for the background or TXT.
-
     "Do you leave the room?"
     menu enter_reality:
         "Yes":
+             python:
+                 renpy.pause()
              jump new_reality
         "No":
              "You've decided to stay in this room. You have everything you could ever want."

@@ -7,9 +7,9 @@ init:
     image title four = "./rsrc/title4.jpg"
 
     image intro one = "./rsrc/intro1.jpg"
-    image intro two = "./rsrc/intro1.jpg"
-    image intro three = "./rsrc/intro1.jpg"
-    image intro four = "./rsrc/intro1.jpg"
-    image intro five = "./rsrc/intro1.jpg"
+    image intro two = "./rsrc/intro2.jpg"
+    image intro three = "./rsrc/intro3.jpg"
+    image intro four = "./rsrc/intro4.jpg"
+    image intro five = "./rsrc/intro5.jpg"
 
 

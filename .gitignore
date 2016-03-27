@@ -1,0 +1,5 @@
+*.bak
+*.rpyc
+images/*
+cache/*
+saves/*

@@ -71,7 +71,7 @@ init 1 python:
     node16.add_right(node13)
 
     node17 = Location("node17", "Maze")
-    node6.add_left(node17)
+    node16.add_left(node17)
     node17.add_top(node15)
 
     final_location = Location("final_location", "The End")

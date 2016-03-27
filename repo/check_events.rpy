@@ -1,12 +1,15 @@
 init 2 python:
     beg = 1
     def check_location(location):
+        global beg
         if location.label == "new_reality":
             if beg == 1:
                 renpy.call("beginning")
         if location.label == "your_room":
             if beg == 2:
                 renpy.call("room")
+        if beg == 3:
+            beg = beg - 1
 
 label beginning:
     scene intro one
@@ -38,7 +41,9 @@ label beginning:
     return
 
 label room:
-    "This is your room. This is normal."
+    python:
+        renpy.pause()
+    "But this isn't your room. And nothing is normal, anymore."
     $beg = 3
     jump your_room
     return

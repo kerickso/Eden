@@ -32,10 +32,12 @@ label beginning:
     python:
          renpy.pause()
 
-    "The door slams behind you."
-    "The world has gone black around you."
-    "What is this update? What have they done?"
-    "Where do you go from here?"
+    "The door slams behind you"
+    "The world appears to have gone black around you"
+    "Where is your house? What have they done?"
+    scene matrix one with fade
+    "Suddenly, you see green text appear where there should be a hallway"
+    "What the fuck?"
     $beg = 2
     jump new_reality
     return

@@ -45,11 +45,21 @@ def hackertext(text, font="/usr/share/fonts/TTF/DroidSansMono.ttf"):
         shift(bbox, (image.width - width(bbox)) // 2,
               (image.height - height(bbox) - size[1]) // 2)
         # Draw the text in green on the image and resize it to WIDTHxHEIGHT
-        draw.text((bbox[0], bbox[1]), line, (0, 240, 0), font=font)
+        draw.text((bbox[0], bbox[1]), line, (0, 255, 0), font=font)
 
     image = image.resize((WIDTH, HEIGHT), Image.ANTIALIAS)
 
     return image
+
+def black_area(img):
+    area = 0
+
+    for x in range(img.width):
+        for y in range(img.height):
+            if img.getpixel((x, y)) == (0, 0, 0):
+                area += 1
+
+    return area
 
 def main():
     if (len(sys.argv) > 1):
@@ -82,6 +92,18 @@ Options:
 
         outfile = opts.get('-o', tempfile.mktemp('.png', 'img_'))
         image = hackertext(text)
+
+        # Blur relative to the percent of nonblack pixels
+        nb = 1 - black_area(image) / (image.width * image.height)
+        blur = math.ceil((nb ** 0.4) * 6)
+        image = image.filter(ImageFilter.GaussianBlur(blur))
+        print(nb ** 0.25, blur, file=sys.stderr)
+
+        # Draw horizontal scanning lines over text
+        draw = ImageDraw.Draw(image)
+        for y in range(0, image.height, image.height // 40):
+            draw.line([-1, y, image.width, y + 8], fill=0x2000, width=1)
+
         image.save(outfile)
         print(outfile)
 

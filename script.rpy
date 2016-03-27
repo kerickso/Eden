@@ -9,6 +9,7 @@ define solo = Character('SOLO', color="#00ff00")
 
 # The game starts here.
 label start:
+    play music "rsrc/cosima.mp3"
     scene title one
     python:
         renpy.pause()

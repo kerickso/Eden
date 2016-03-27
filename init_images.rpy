@@ -35,3 +35,5 @@ init:
     image maze fifteen = "./rsrc/maze15.jpg"
     image maze sixteen = "./rsrc/maze16.jpg"
     image maze seventeen = "./rsrc/maze17.jpg"
+
+    image finale = "./rsrc/finale.jpg"

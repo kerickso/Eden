@@ -274,7 +274,7 @@ label node17:
     return
 
 label final_location:
-    scene black
+    scene finale
     python:
         renpy.hide_screen("ui_nav")
         check_location(final_location)

@@ -4,9 +4,9 @@ init 1 python:
     renpy.hide_screen("ui_nav")
 
     new_reality = Location("new_reality", "New Reality")
-    room = Location("your_room", "Your Room")
-    new_reality.add_bottom(room)
-    room.add_top(new_reality)
+    your_room = Location("your_room", "Your Room")
+    new_reality.add_bottom(your_room)
+    your_room.add_top(new_reality)
 
 
 

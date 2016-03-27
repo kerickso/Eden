@@ -29,13 +29,20 @@ label beginning:
     scene black
     stop music
     play sound "./rsrc/door.mp3"
+
     python:
-         renpy.pause()
+        renpy.pause()
 
     "The door slams behind you"
+
+    play music "./rsrc/cosima_slow.mp3" fadein 4.0
+    python:
+        renpy.music.set_volume(0.3, .3, channel="music")
+
     "The world appears to have gone black around you"
     "Where is your house? What have they done?"
     scene matrix one with fade
+
     "Suddenly, you see green text appear where there should be a hallway"
     "What the fuck?"
     $beg = 2

@@ -10,15 +10,19 @@ label beginning:
     python:
          renpy.pause()
     scene intro two
+    "You get out of bed, relaxed and ready to have a great day"
     python:
          renpy.pause()
     scene intro three
+    "You go to the door to leave your bedroom..."
     python:
          renpy.pause()
     scene intro four
+    "THIS IS NOT NORMAL!!"
     python:
          renpy.pause()
     scene intro five
+    "Everything is gone... this shouldn't be possible!"
     python:
          renpy.pause()
 

@@ -10,6 +10,8 @@ init 2 python:
                 renpy.call("room")
         if beg == 4:
             beg = beg - 1
+        if location.label == "final_location":
+            renpy.jump("finale")
 
 label beginning:
     scene intro one
@@ -56,4 +58,62 @@ label room:
             new_reality.add_top(maze_entrance)
     $beg = 4
     jump your_room
+    return
+
+label finale:
+   ###
+   "There seems to be a way to interact with the computer here."
+label loop1:
+   "What do you do?"
+   menu:
+       "Talk":
+            "There is no response."
+            jump loop1
+       "Think":
+            "The AIs weren't given access to your mind. Nothing happens."
+            jump loop1
+       "Type":
+            "You start typing."
+            "Nonsense falls out of your fingertips."
+            "You don't quite understand what you're typing - nobody types here anymore; there is no code, no stress, no computers other than the ones that protect you. There was only ever peace here."
+            "But you keep typing somehow."
+            "What do you type?"
+            menu:
+                "Kim Kardashian":
+                     "Something's not quite right..."
+                     jump death
+                "Machine Learning":
+                     "Nothing particularly bad happens yet..."
+                     menu:
+                         "Heap Kernel":
+                              "You keep going..."
+                              menu:
+                                  "Expectation-Maximization Algorithm":
+                                      "You've finished. You press ENTER and the world begins to reset."
+                                      stop music
+                                      scene intro one with fade
+                                      play music "./rsrc/cosima.mp3"
+                                      "You are in a bed. The world is calm around you."
+                                      "Do you dare to leave the room?"
+                                      scene black with fade
+                                      centered "The End"
+                                  "Clear All":
+                                      "Oh, no..."
+                                      jump death
+                         "Reset":
+                              "Nothing happens, not at first..."
+                              "But, then - "
+                              jump death
+   return
+
+label death:
+    "The code around you flickers and you start to feel strange...."
+    "This isn't right."
+    "Eden is crashing around you."
+    scene black with fade
+    centered "The world is gone."
+    centered "And now you are gone, too."
+    centered "Is there a reality beyond this one?"
+    centered "Will you ever wake up?"
+    centered "The End"
     return

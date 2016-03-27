@@ -4,14 +4,13 @@
 # eg. image eileen happy = "eileen_happy.png"
 
 # Declare characters used by this game.
-define e = Character('Eileen', color="#c8ffc8")
+define solo = Character('SOLO', color="#00ff00")
 
 
 # The game starts here.
-label start:
+label wake_up:
+    solo "THIS IS YOUR LIFE NOW"
 
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    solo "Nothing is wrong. Everything you see is perfectly ordinary."
 
     return

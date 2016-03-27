@@ -8,7 +8,7 @@
                 xfill False
                 has hbox
                 if location.can_move("right"):
-                    text location.right.title
+                    text "Right" #location.right.title
         showif location.can_move("left"):
             button:
                 xalign 0.05
@@ -17,7 +17,7 @@
                 xfill False
                 has hbox
                 if location.can_move("left"):
-                    text location.left.title
+                    text "Left" #location.left.title
         showif location.can_move("up"):
             button:
                 xalign 0.5
@@ -26,7 +26,7 @@
                 xfill False
                 has hbox
                 if location.can_move("up"):
-                    text location.top.title
+                    text "Forward" #location.top.title
         showif location.can_move("down"):
             button:
                 xalign 0.5
@@ -35,4 +35,4 @@
                 xfill False
                 has hbox
                 if location.can_move("down"):
-                    pass
+                    text "Backward"

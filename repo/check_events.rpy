@@ -10,20 +10,18 @@ init 2 python:
 
 label beginning:
     scene intro one
-    python:
-         renpy.pause()
+
     scene intro two
-    python:
-         renpy.pause()
+    "You get out of bed, relaxed and ready to have a great day"
+
     scene intro three
-    python:
-         renpy.pause()
+    "You go to the door to leave your bedroom..."
+
     scene intro four
-    python:
-         renpy.pause()
+    "THIS IS NOT NORMAL!!"
+
     scene intro five
-    python:
-         renpy.pause()
+    "Everything is gone... this shouldn't be possible!"
 
     scene black
     stop music

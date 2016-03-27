@@ -97,7 +97,7 @@ label your_room:
     return
 
 label maze_entrance:
-    scene black
+    scene matrix three
     python:
         renpy.hide_screen("ui_nav")
         check_location(maze_entrance)
@@ -106,7 +106,7 @@ label maze_entrance:
     return
 
 label node1:
-    scene black
+    scene maze one
     python:
         renpy.hide_screen("ui_nav")
         check_location(node1)
@@ -115,7 +115,7 @@ label node1:
     return
 
 label node2:
-    scene black
+    scene maze two
     python:
         renpy.hide_screen("ui_nav")
         check_location(node2)
@@ -124,7 +124,7 @@ label node2:
     return
 
 label node3:
-    scene black
+    scene maze three
     python:
         renpy.hide_screen("ui_nav")
         check_location(node3)
@@ -133,7 +133,7 @@ label node3:
     return
 
 label node4:
-    scene black
+    scene maze four
     python:
         renpy.hide_screen("ui_nav")
         check_location(node4)
@@ -143,7 +143,7 @@ label node4:
 
 
 label node5:
-    scene black
+    scene maze five
     python:
         renpy.hide_screen("ui_nav")
         check_location(node5)
@@ -152,7 +152,7 @@ label node5:
     return
 
 label node6:
-    scene black
+    scene maze six
     python:
         renpy.hide_screen("ui_nav")
         check_location(node6)
@@ -161,7 +161,7 @@ label node6:
     return
 
 label node7:
-    scene black
+    scene maze seven
     python:
         renpy.hide_screen("ui_nav")
         check_location(node7)
@@ -171,7 +171,7 @@ label node7:
 
 
 label node8:
-    scene black
+    scene maze eight
     python:
         renpy.hide_screen("ui_nav")
         check_location(node8)
@@ -180,7 +180,7 @@ label node8:
     return
 
 label node9:
-    scene black
+    scene maze nine
     python:
         renpy.hide_screen("ui_nav")
         check_location(node9)
@@ -189,7 +189,7 @@ label node9:
     return
 
 label node10:
-    scene black
+    scene maze ten
     python:
         renpy.hide_screen("ui_nav")
         check_location(node10)
@@ -199,7 +199,7 @@ label node10:
 
 
 label node11:
-    scene black
+    scene maze eleven
     python:
         renpy.hide_screen("ui_nav")
         check_location(node11)
@@ -208,7 +208,7 @@ label node11:
     return
 
 label node12:
-    scene black
+    scene maze twelve
     python:
         renpy.hide_screen("ui_nav")
         check_location(node12)
@@ -217,7 +217,7 @@ label node12:
     return
 
 label node13:
-    scene black
+    scene maze thirteen
     python:
         renpy.hide_screen("ui_nav")
         check_location(node13)
@@ -227,7 +227,7 @@ label node13:
 
 
 label node14:
-    scene black
+    scene maze fourteen
     python:
         renpy.hide_screen("ui_nav")
         check_location(node14)
@@ -236,7 +236,7 @@ label node14:
     return
 
 label node15:
-    scene black
+    scene maze fifteen
     python:
         renpy.hide_screen("ui_nav")
         check_location(node15)
@@ -245,7 +245,7 @@ label node15:
     return
 
 label node16:
-    scene black
+    scene maze sixteen
     python:
         renpy.hide_screen("ui_nav")
         check_location(node16)
@@ -255,7 +255,7 @@ label node16:
 
 
 label node17:
-    scene black
+    scene maze seventeen
     python:
         renpy.hide_screen("ui_nav")
         check_location(node17)

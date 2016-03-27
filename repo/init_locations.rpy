@@ -4,11 +4,9 @@ init 1 python:
     renpy.hide_screen("ui_nav")
 
     new_reality = Location("new_reality", "New Reality")
-    
-
-
-    #location1.add_bottom(location2)
-    #location2.add_left(location1)
+    your_room = Location("your_room", "Your Room")
+    new_reality.add_bottom(your_room)
+    your_room.add_top(new_reality)
 
 
 
@@ -22,7 +20,13 @@ label new_reality:
         new_reality.screen_loop()
     return
 
-
+label your_room:
+    python:
+        renpy.hide_screen("ui_nav")
+        check_location(your_room)
+        renpy.show_screen("ui_nav", your_room)
+        your_room.screen_loop()
+    return
 
 
 
